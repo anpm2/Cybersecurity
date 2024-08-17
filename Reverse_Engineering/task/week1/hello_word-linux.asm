@@ -8,8 +8,8 @@ section .text               ;nơi thực thi dòng lệnh
     global _start           ;khai báo nơi chương trình
 
 _start:                     ;cho biết điểm đầu vào của chương trình
-    mov     edx,    len_msg ;gán độ dài chuỗi vào edx
-    mov     ecx,    msg     ;gán chuỗi vào ecx
+    mov     edx,    len_msg ;gán địa chỉ của độ dài chuỗi vào edx
+    mov     ecx,    msg     ;gán địa chỉ của chuỗi vào ecx
     mov     ebx,    1       ;file mô tả (1 ~ stdout)
     mov     eax,    4       ;gọi hệ thống (4 ~ sys_write) 
     int     80h             ;gọi kernel để ngắt
