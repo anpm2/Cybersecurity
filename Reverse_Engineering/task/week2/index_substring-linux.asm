@@ -1,3 +1,5 @@
+;Code on linux-x64 by Cyman
+
 ; định nghĩa các hằng trong system call 
 SYS_EXIT  equ 60
 SYS_READ  equ 0    
