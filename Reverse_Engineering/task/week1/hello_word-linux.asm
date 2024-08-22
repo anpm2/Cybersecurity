@@ -1,4 +1,4 @@
-;code on linux-32bit by Cyman
+;code on linux_x86 by Cyman
 
 section .data               ; khai báo dữ liệu khởi tạo, hằng
     msg         db      'Hello wordl!', 0
