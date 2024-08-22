@@ -5,8 +5,7 @@ section .data               ; khai báo dữ liệu khởi tạo, hằng
     len_msg     equ $ - msg ;độ dài chuỗi
 
 section .text               ;nơi thực thi dòng lệnh
-    global _start           ;khai báo nơi chương trình
-
+    global _start           ;báo cho hệ điều hành biết nơi chương trình có thể được tìm thấy và thực thi
 _start:                     ;cho biết điểm đầu vào của chương trình
     mov     edx,    len_msg ;gán địa chỉ của độ dài chuỗi vào edx
     mov     ecx,    msg     ;gán địa chỉ của chuỗi vào ecx
@@ -14,5 +13,5 @@ _start:                     ;cho biết điểm đầu vào của chương trìn
     mov     eax,    4       ;gọi hệ thống (4 ~ sys_write) 
     int     80h             ;gọi kernel để ngắt
     
-    mov     eax,    1       ;gọi hệ thống (1 ~ sts_exit)
+    mov     eax,    1       ;gọi hệ thống (1 ~ sts_exit) 
     int 80h
