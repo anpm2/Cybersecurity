@@ -1,7 +1,7 @@
-;code on linux_x86 by Cyman
+;code on linux-32bit by Cyman
 
 section .data               ; khai báo dữ liệu khởi tạo, hằng
-    msg     db  'Hello wordl!', 0
+    msg     db  'Hello wordl!', 0xA ;khai báo chuỗi msg, ký tự xuống dòng (0xA)
     len_msg equ $ - msg     ;độ dài chuỗi
 
 section .text               ;nơi thực thi dòng lệnh
