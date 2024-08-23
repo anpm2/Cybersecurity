@@ -1,4 +1,4 @@
-; Code on linux_x86 by Cyman
+; Code on linux_x86 by Cyman_AT20N
 
 section .data       ; khai báo dữ liệu tĩnh và bộ nhớ
     msg1 db "Nhap so thu nhat: ", 0
