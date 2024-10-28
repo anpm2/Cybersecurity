@@ -26,12 +26,12 @@ cipher =[
   0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x4C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
   0x48, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
 
-key = 'YXV0aG9ybm9vYm1hbm5uZnJvbWtjc2M='
-length = len(key)
+text = 'YXV0aG9ybm9vYm1hbm5uZnJvbWtjc2M='
+length = len(text)
 flag = ''
 
 for i in range(51):
-    flag += chr(cipher[i * 8] ^ ord(key[i % length]))
+    flag += chr(cipher[i * 8] ^ ord(text[i % length]))
 
 print('Flag:', flag)
 #Flag: KCSC{7h15_15_345y60l4n6_ch4ll3n63_7ea2da17_<3<3!!!}
