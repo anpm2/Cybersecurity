@@ -6,24 +6,22 @@ Week 3
 # I. Anti-debug
 * Anti-debug là các kỹ thuật ngăn chặn quá trình debug nhằm gây khó khăn cho việc phân tích mã nguồn chương trình. Kỹ thuật này thường sử dụng phổ biến trong mã độc để tránh bị dịch ngược.
 
-# II. Ưu điểm và nhược điểm của Anti-debug
-* **Ưu điểm:**
-  * Bảo vệ bản quyền mã nguồn: ngăn chặn crack bản quyền sở hữu trí tuệ
-  * Bảo mật và ngăn ngừa bị tấn công: ngăn chặn kẻ xấu khai thác lỗ hổng, giảm khả năng dịch ngược chương trình.
-* **Nhược điểm:**
-  * Gây khó khăn cho các kỹ sư phân tích mã độc và kỹ sư dịch ngược khi đối phó với chương trình viruss.
-  * Cản trở quá trình bảo trì hệ thống và sửa lỗi phần mềm.
-* **Ví dụ kỹ thuật anti-debug:**
-   * 1 chương trình đơn giản sử dụng kỹ thuật anti-debug.
-   * Mở file bằng IDA
-   ![](https://github.com/anpm2/Cybersecurity/blob/a28b4053de839c15a3745a3870e51849acb7573d/Reverse_Engineering/task/week3/image/1.png)
-   ![](https://github.com/anpm2/Cybersecurity/blob/a28b4053de839c15a3745a3870e51849acb7573d/Reverse_Engineering/task/week3/image/2.png)
-   * Nhìn vào mã giả của file ta có thể thấy chương trình yêu cầu nhập password và chạy lần lượt qua các hàm check debug: `IsDebuggerPresent()`, `CheckRemoteDebuggerPresent()`, ...
-   * Debug thử chương trình thì bị thông báo như sau:
-   ![](https://github.com/anpm2/Cybersecurity/blob/a28b4053de839c15a3745a3870e51849acb7573d/Reverse_Engineering/task/week3/image/3.png)
-   * Chương trình trên đã sử dụng cơ bản kỹ thuật anti-debug.
-   * Nếu người dùng nhập pass là `I have a pen.` thì chương trình in ra `Your password is correct.` và sẽ tiếp tục kiểm tra xem ta có đang sử dụng debugger nào hay không.
-   * Nếu có thì in ra thông báo đã phát hiện trình gỡ lỗi, nếu không thì không in ra gì và kết thúc chương trình.
+# II. Một số phương pháp Anti-debug
+## Nhận diện debugger
+* Sử dụng các biện pháp mà hệ điều hành kiểm soát quá trình debug.
+* Bao gồm việc sử dụng các API cung cấp thông tin về một chương trình có bị debug hay không, kiểm tra các breakpoint được đặt trong đoạn code thực thi, loại bỏ các hardware breakpoint và sử dụng các lỗi đã biết của debugger để gây crash chương trình.
+
+## Làm rối chương trình
+* Code obfuscation (làm rối code) được sử dụng để chống lại cả các Debugger và các Disassembler.
+* Thay đổi tên các hàm, các biến thành những cái tên tối nghĩa hoặc tên được sinh ra ngẫu nhiên.
+* Sử dụng nhiều lệnh jump tạo thành những vòng luẩn quẩn. Mã hóa các chuỗi được sử dụng.
+* Tất cả những biện pháp trên khiến công việc đọc đoạn code sau khi disassembly trở nên khó khăn hơn rất nhiều.
+
+## Mã hoá code
+* Đây là phương pháp biến đổi code ở mức độ cao hơn.
+* Code được mã hoá và giải mã rồi thực thi trong quá trình chạy chương trình.
+* Ta chỉ có thể đọc được đoạn code thực sự thực thi công việc cụ thể khi sử dụng các debugger và đọc trong quá trình chương trình thực thi.
+* Kỹ thuật này thường được sử dụng phổ biến bởi virus và malware.
 
 # III. Các kỹ thuật Anti-debug
 
@@ -50,26 +48,26 @@ Week 3
   
   * Ví dụ về cách hoạt động:
   ```c
-  #include <stdio.h>
-  #include <stdlib.h>
-  #include <windows.h>
-  
-  int main(){
-      int n;
-      int a = 2, b = 4;
-      int c = 0;
-      scanf("%d", &n);
-      if(n != 10){
-          printf("Hello world!\n");
-      }
-      if (IsDebuggerPresent()){
-          printf("Phat hien debug! Ket thuc chuong trinh!!\n");
-          ExitProcess(-1);
-      }
-      c = a + b;
-      printf("Tong 2 + 4 = %d\n", c);
-      return 0;
-  }
+#include <stdio.h>
+#include <Windows.h>
+
+void detected(){
+    printf("Debugger detected!\n");
+}
+
+void not_detected(){
+    printf("Hello world!\n");
+}
+
+int main(){
+    if (IsDebuggerPresent()){
+        detected();
+    } else {
+        not_detected();
+    }
+
+    return 0;
+}
   ```
   #### 1.1.2 CheckRemoteDebuggerPresent()
   * Kiểm tra xem trình gỡ lỗi (trong một quy trình khác trên cùng một máy) có được gắn vào quy trình hiện tại hay không.
