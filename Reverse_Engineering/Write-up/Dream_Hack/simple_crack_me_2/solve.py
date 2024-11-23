@@ -1,20 +1,21 @@
-from pwn import *
-from string import printable
+cipher = [0xF8, 0xE0, 0xE6, 0x9E, 0x7F, 0x32, 0x68, 0x31, 
+          0x05, 0xDC, 0xA1, 0xAA, 0xAA, 0x09, 0xB3, 0xD8, 
+          0x41, 0xF0, 0x36, 0x8C, 0xCE, 0xC7, 0xAC, 0x66, 
+          0x91, 0x4C, 0x32, 0xFF, 0x05, 0xE0, 0xD9, 0x91]
 
-context.log_level="critical"
+print(len(cipher), end='\n')
 
-flag = ""
+key1 = [0xDE, 0xAD, 0xBE, 0xEF]
+key2 = [0xEF, 0xBE, 0xAD, 0xDE]
+key3 = [0x11, 0x33, 0x55, 0x77, 0x99, 0xBB, 0xDD]
 
-out = bytes.fromhex(open("output.txt", "r").read())
-for i in range(len(out)):
-    for j in printable:
-        input = (flag + j).ljust(len(out), "A")
-        p = process("./legacyopt")
-        p.sendline(input.encode())
-        res = bytes.fromhex((p.recv(2*len(out))).decode())
-        p.close()
-        if res[i] == out[i]:
-            flag += j
-            break
+for i in range(len(cipher)):
+    cipher[i] ^= key3[i % len(key3)]
+    cipher[i] = (cipher[i] - 243) &0xff
+    cipher[i] = (cipher[i] + 77) & 0xff
+    cipher[i] ^= key2[i % len(key2)]
+    cipher[i] = (cipher[i] + 90) & 0xff
+    cipher[i] = (cipher[i] - 31) & 0xff
+    cipher[i] ^= key1[i % len(key1)]
 
-print(flag)
+[print(chr(c), end='') for c in cipher]
