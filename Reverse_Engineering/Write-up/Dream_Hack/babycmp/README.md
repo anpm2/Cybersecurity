@@ -93,4 +93,4 @@ print(f'Flag: {flag}')
 `DH{y0u_4r3_cmp__ma5t3r!}`
 :::
 
-> ![ảnh](https://hackmd.io/_uploads/H1VuUUxnA.png)
+> ![](https://github.com/anpm2/Cybersecurity/blob/278e8a7275f139b8f9caf95eb6bd9b4e1228fe70/Reverse_Engineering/Write-up/Dream_Hack/babycmp/Image/11.png)
