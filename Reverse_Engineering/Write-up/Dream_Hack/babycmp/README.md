@@ -89,8 +89,14 @@ for i in range(len(cipher_dword)):
 
 print(f'Flag: {flag}')
 ```
-:::spoiler **Flag**
-`DH{y0u_4r3_cmp__ma5t3r!}`
-:::
+
+<details>
+  <summary><strong><code>Flag:</code></strong></summary>
+  
+  ```
+  DH{y0u_4r3_cmp__ma5t3r!}
+  ```
+
+</details>
 
 > ![](https://github.com/anpm2/Cybersecurity/blob/278e8a7275f139b8f9caf95eb6bd9b4e1228fe70/Reverse_Engineering/Write-up/Dream_Hack/babycmp/Image/11.png)
