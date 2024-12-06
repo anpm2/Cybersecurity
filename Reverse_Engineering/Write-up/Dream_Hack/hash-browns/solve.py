@@ -24,5 +24,6 @@ for i in range(len(enc) // 2):
     hash = p64((enc[i * 2])) + p64(enc[i * 2 + 1])
     print(hash.hex(), end='\n')
     flag += dec_3_chars(hash)
-
 print(f"\nFlag: {flag}\n") 
+
+# Flag: DH{m-d-5_1s_vu1n-er-4b1e~!}
