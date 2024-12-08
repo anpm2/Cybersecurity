@@ -2,6 +2,7 @@
 # print(len(flag))
 
 from z3 import *
+
 def solve_flag():
     # Tạo các biến symbolic cho 4 block của flag
     # 8-10-10-8
@@ -31,10 +32,10 @@ def solve_flag():
         print(f"Second block (v3): {v3_val:010x}")
         print(f"Third block (v2): {v2_val:010x}")
         print(f"Fourth block (v1): {v1_val:08x}")
-
-        flag = f"DH{{{v4_val:08x}-{v3_val:010x}-{v2_val:010x}-{v1_val:08x}}}"
-        print("\nFlag:", flag)
+        print(f"\nDH{{{v4_val:08x}-{v3_val:010x}-{v2_val:010x}-{v1_val:08x}}}")
+        
     else:
-        print("Không tìm thấy lời giải")
+        print("Not found")
 
 solve_flag()
+# Flag: DH{62f0aaba-a1f2ddf600-2232c1f8e3-517f9764}
