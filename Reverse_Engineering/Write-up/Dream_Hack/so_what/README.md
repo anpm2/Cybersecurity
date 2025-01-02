@@ -4,19 +4,19 @@
 
 * Mở file bằng IDA
 
-![0]()
+![0](https://github.com/anpm2/Cybersecurity/blob/c62c907dd960b14acc60848997a40410369361c2/Reverse_Engineering/Write-up/Dream_Hack/so_what/image/0.png)
 * Phân tích khái quát:
-    ![1]()
+    ![1](https://github.com/anpm2/Cybersecurity/blob/c62c907dd960b14acc60848997a40410369361c2/Reverse_Engineering/Write-up/Dream_Hack/so_what/image/1.png)
     * Hàm verify sẽ check các ký tự của input từ a-f và 0-9 nếu không thoả sẽ in ra `Wrong input.` và thoát chương trình.
 
     * Ở hàm main chall yêu cầu người dùng nhập dữ liệu, xác thực dữ liệu và tải hàm từ thư viện động để xử lý. Sau đó, kiểm tra kết quả và in thông báo tương ứng.
 
     * Flow cụ thể của chương trình như sau: ký tự đầu tiên của input được gán vào `name[2]`, tiếp theo lấy địa chỉ hàm theo tên name từ thư viện động `lib/start.so`. Lần lượt gọi liên tục như thế qua các `lib/...so` còn lại cho đến ký tự cuối cùng, thì sẽ gặp hàm trong `lib/...so` bất kỳ return về giá trị 0 nếu sai input, là 1 nếu đúng input.
 
-    ![2]()
-    ![3]()
+    ![2](https://github.com/anpm2/Cybersecurity/blob/c62c907dd960b14acc60848997a40410369361c2/Reverse_Engineering/Write-up/Dream_Hack/so_what/image/2.png)
+    ![3](https://github.com/anpm2/Cybersecurity/blob/c62c907dd960b14acc60848997a40410369361c2/Reverse_Engineering/Write-up/Dream_Hack/so_what/image/3.png)
 
-* Từ phân tích trên đầu tiên mình sẽ xác định xem tên hàm return 1 nằm trong `/lib/...so` nào, từ đó sẽ **backtrack** đến `lib/start.sp` để xác định input chính xác.
+* Từ phân tích trên đầu tiên mình sẽ xác định xem tên hàm return 1 nằm trong `/lib/...so` nào, từ đó **backtrack** đến `lib/start.so` để xác định input chính xác.
 
 ```python
 import os
@@ -66,10 +66,10 @@ def main():
 main()
 ```
 
-![4]()
+![4](https://github.com/anpm2/Cybersecurity/blob/c62c907dd960b14acc60848997a40410369361c2/Reverse_Engineering/Write-up/Dream_Hack/so_what/image/4.png)
 * Run script trên thì nhận được file`/lib/219f2e3164.so` chứa hàm `f_8` return 1.
 
-![5]()
+![5](https://github.com/anpm2/Cybersecurity/blob/c62c907dd960b14acc60848997a40410369361c2/Reverse_Engineering/Write-up/Dream_Hack/so_what/image/5.png)
 * Check lại = IDA.
 
 * Biết được hàm `f_8` return 1 trong file `/lib/219f2e3164.so`, ta viết script thực hiện **backtrack** lần lượt từ hàm return 1 trong file .so đó trở về file `/lib/start.so` để tìm tên hàm cho input đúng.
@@ -177,4 +177,4 @@ main()
 
 </details>
 
-![6]()
+![6](https://github.com/anpm2/Cybersecurity/blob/c62c907dd960b14acc60848997a40410369361c2/Reverse_Engineering/Write-up/Dream_Hack/so_what/image/6.png)
