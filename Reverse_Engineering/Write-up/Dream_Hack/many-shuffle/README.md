@@ -1,6 +1,6 @@
 # many-shuffle (Level 2)
 
->**Link: [chall]()
+>**Link: [chall]()**
 
 * Load chall vào IDA:
 ```c
@@ -67,7 +67,7 @@ __int64 __fastcall main(__int64 a1, char **a2, char **a3)
 
 * Nếu khớp chương trình sẽ đọc file flag và xuất.
 
-![0]()
+![0](https://github.com/anpm2/Cybersecurity/blob/7cb8d74d28d60239732f271f4301eb4ffc3c12db/Reverse_Engineering/Write-up/Dream_Hack/many-shuffle/image/0.png)
 * Khi run và debug thì chương trình chỉ cho 10s để nhập vì thế ta sẽ viết script tự động đọc và gửi chuỗi original.
 
 ```python
@@ -122,7 +122,7 @@ print(response)
 p.close()
 ```
 
-![1]()
+![1](https://github.com/anpm2/Cybersecurity/blob/7cb8d74d28d60239732f271f4301eb4ffc3c12db/Reverse_Engineering/Write-up/Dream_Hack/many-shuffle/image/1.png)
 * Chạy local thì chính xác rồi, bây giờ thì chạy và gửi payload lên server lấy flag thui!!
 
 <details>
@@ -134,4 +134,4 @@ p.close()
 
 </details>
 
-![2]()
+![2](https://github.com/anpm2/Cybersecurity/blob/7cb8d74d28d60239732f271f4301eb4ffc3c12db/Reverse_Engineering/Write-up/Dream_Hack/many-shuffle/image/2.png)
