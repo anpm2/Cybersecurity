@@ -1,6 +1,6 @@
 # many-shuffle (Level 2)
 
->**Link: [chall]()**
+>**Link: [chall](https://github.com/anpm2/Cybersecurity/tree/26e7becc5796b9e0a02c5b3ae9a1bf01b5e2be6b/Reverse_Engineering/Write-up/Dream_Hack/many-shuffle/chall)**
 
 * Load chall vào IDA:
 ```c
