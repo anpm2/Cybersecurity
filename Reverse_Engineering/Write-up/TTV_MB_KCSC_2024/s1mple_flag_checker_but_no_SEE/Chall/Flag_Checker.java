@@ -4,13 +4,13 @@ public class Flag_Checker {
 	static int[] pos = { 10, 15, 19, 28, 30, 44, 49 };
 	static int[] f1nal = { 18, 20, 22, 23, 25, 26, 27, 31, 33, 34, 36, 37, 39, 40 };
 
-	public static boolean checkfmt(boolean ret, String s) {
+	public static boolean check(boolean ret, String s) {
 		if ((!s.substring(0, 5).equals("KCSC{")) || !(s.charAt(s.length() - 1) == '}'))
 			ret = false;
 		return ret;
 	}
 
-	public static boolean check_(boolean ret, String s, int[] arr) {
+	public static boolean check(boolean ret, String s, int[] arr) {
 		for (int i = 0; i < arr.length; ++i) {
 			if (s.charAt(arr[i]) != 95)
 				return false;
@@ -18,7 +18,7 @@ public class Flag_Checker {
 		return ret;
 	}
 
-	public static boolean checkDig(boolean ret, String s, boolean[] arr) {
+	public static boolean check(boolean ret, String s, boolean[] arr) {
 		int[] num = new int[10];
 
 		for (int i = 0; i < s.length(); ++i) {
@@ -40,8 +40,11 @@ public class Flag_Checker {
 		}
 		return ret;
 	}
+	
 
-	public static boolean checkInLet(boolean ret, String s, char[] arr) {
+
+
+	public static boolean check(boolean ret, String s, char[] arr) {
 		int l = 5, r = 55, cnt = 0;
 		while (cnt < arr.length) {
 			while (!Character.isLetter(s.charAt(l)))
@@ -92,12 +95,13 @@ public class Flag_Checker {
 				false, true, false, true, false, false, false, false, false, false, false, false, false, false, false,
 				false, false, true, false, false, false, false, true, false, false, false, false, false, false, false };
 		int[] pos = { 17, 21, 24, 29, 32, 35, 38, 47, 52 };
-		char[] let = { 't', 'P', 'i', 'o', 't', 'L', 'n', 'y', 'i', 'm', 'h', 'r', 'c', 'p', 'o', 'h', 'r', 'i', 'P', 'm' };
+		char[] let = { 't', 'P', 'i', 'o', 't', 'L', 'n', 'y', 'i', 'm', 'h', 'r', 'c', 'p', 'o', 'h', 'r', 'i',
+				'P', 'm' };
 		Scanner inp = new Scanner(System.in);
 		System.out.print("Enter flag: ");
 		String input = inp.next();
 		boolean ret = true;
-		if (check(checkInLet(check_(checkDig(checkfmt(ret, input), input, isDigit), input, pos), input, let), input, ""))
+		if (check(check(check(check(check(ret, input), input, isDigit), input, pos), input, let), input, ""))
 			System.out.println("Flag is correct");
 		else
 			System.out.println("Try another one");
