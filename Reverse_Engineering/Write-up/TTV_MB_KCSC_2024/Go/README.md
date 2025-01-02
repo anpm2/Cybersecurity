@@ -1,5 +1,4 @@
 # Go
->![](https://github.com/anpm2/Cybersecurity/blob/c1af7c1574383f20a06397d766dffbed3835f26d/Reverse_Engineering/Write-up/TTV_MB_KCSC_2024/Go/Image/Go-Easy.png)
 
 >**Link:** [chall](https://github.com/anpm2/Cybersecurity/tree/c1af7c1574383f20a06397d766dffbed3835f26d/Reverse_Engineering/Write-up/TTV_MB_KCSC_2024/Go/Chall)
 
