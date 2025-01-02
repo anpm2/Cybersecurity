@@ -155,7 +155,7 @@ elif inp[45] + inp[32] + inp[12] + inp[19] + inp[16] + inp[3] != 371:
     exit()
 print('Correct!!! Here is your flag: ' + flag)
 ```
-![0]()
+![0](https://github.com/anpm2/Cybersecurity/blob/ee2744c0cda881c61c4f4b034382293213d810a1/Reverse_Engineering/Write-up/TTV_MB_KCSC_2024/Elif/Image/0.png)
 * Chall này cho 1 file python thực hiện nhận input từ user (gồm 49 ký tự hợp lệ) và kiểm tra qua rất nhiều `elif` .
 * Sử `z3` để lấy flag thui!!
 
@@ -233,8 +233,7 @@ if s.check() == sat:
 else:
     print('Not found!')
 ```
-* Run script và nhận flag thui!!
-![1]()
+
 <details>
   <summary><strong><code>Flag:</code></strong></summary>
   
@@ -243,3 +242,5 @@ else:
   ```
 
 </details>
+
+![1](https://github.com/anpm2/Cybersecurity/blob/ee2744c0cda881c61c4f4b034382293213d810a1/Reverse_Engineering/Write-up/TTV_MB_KCSC_2024/Elif/Image/1.png)
