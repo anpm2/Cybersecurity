@@ -107,7 +107,7 @@ public class Flag_Checker {
 	}
 }
 ```
-![]()
+
 * Chall này cho 1 file java yêu cầu nhập **flag** và kiểm tra qua nhiều hàm **`check`** lồng nhau.
 * Mình đã đổi tên để dễ nhận biết với các hàm theo thứ tự từ trong ra ngoài là check format của **flag** (`KCSC{...}`), check vị trí của các số (`digit`), check vị trí của dấu `_`, check vị trí của các chữ cái (`let`) trong mảng `let` và cuối cùng là hàm check các chữ cái còn lại trong mảng `f1nal`.
 * Sử dụng z3 để lấy flag thui!!
@@ -222,6 +222,7 @@ else:
   ```
 
 </details>
-![0]()
 
-![1]()
+![0](https://github.com/anpm2/Cybersecurity/blob/a8770968786bfcda96e5893c4375eba551be81db/Reverse_Engineering/Write-up/TTV_MB_KCSC_2024/s1mple_flag_checker_but_no_SEE/Image/0.png)
+
+![1](https://github.com/anpm2/Cybersecurity/blob/a8770968786bfcda96e5893c4375eba551be81db/Reverse_Engineering/Write-up/TTV_MB_KCSC_2024/s1mple_flag_checker_but_no_SEE/Image/1.png)
